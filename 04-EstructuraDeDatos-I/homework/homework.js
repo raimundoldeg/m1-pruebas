@@ -15,9 +15,17 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if (n <= 1) {
+    return 1; // este es el base case; caso mínimo donde se cierra la recursion
+  }
+  return n * nFactorial(n-1); // el paso recursivo que se cumple hasta que llega al base case
 }
 
 function nFibonacci(n) {
+  if (n < 2 ) {
+    return n;
+  }
+  return nFibonacci(n-1) + nFibonacci(n-2);
 }
 
 /*
@@ -30,9 +38,37 @@ Pueden utilizar class o función constructora.
 */
 
 function Queue() {
+    const items = [];
 
-}
+    return{
+      enqueue,
+      dequeue,
+      front,
+      isEmpty,
+      size,
+    };
 
+    function enqueue(element) {
+      items.push(element);
+    }
+
+    function dequeue() {
+      return items.shift();
+    }
+
+    function front() {
+      return items[0];
+    }
+
+    function isEmpty() {
+      return items.length === 0;
+    }
+
+    function size() {
+      return items.length;
+    }
+  }
+// npm test DataStructure.test.js
 // No modifiquen nada debajo de esta linea
 // --------------------------------
 
